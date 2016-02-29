@@ -31,20 +31,7 @@ TopModel.read = function () {
 		page: 1,
 		per_page: 100
 	}, function(err, res) {
-		var open_page = res;
-
-		repo.listPulls({
-			state: 'closed',
-			page: 1,
-			per_page: 100
-		}, function(err, res) {
-			var closed_page = res;
-
-			// open and closed pull requests
-			var all_pages = open_page.concat(closed_page);
-
-			return deferred.resolve(new TopModel(all_pages));
-		});
+		return deferred.resolve(new TopModel(res));
 	});
 
 	return deferred.promise;
