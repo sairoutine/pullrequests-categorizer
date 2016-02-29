@@ -1,8 +1,7 @@
 'use strict';
 module.exports = {
-	"apiUrl": "",
 	"token": "",
-	"auth": "",
+	"auth": "oauth",
 	"repouser": "",
 	"reponame": ""
 };
