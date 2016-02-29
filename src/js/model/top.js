@@ -11,12 +11,16 @@ var TopModel = function (data, isInitial) {
 };
 
 TopModel.read = function () {
-
-	var github = new Github({
-		apiUrl: config.apiUrl,
+	var params = {
 		token: config.token,
 		auth: config.auth
-	});
+	};
+
+	if(config.apiUrl) {
+		params.apiUrl = config.apiUrl;
+	}
+
+	var github = new Github(params);
 
 	var repo = github.getRepo(config.repouser, config.reponame);
 
